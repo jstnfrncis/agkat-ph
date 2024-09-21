@@ -7,6 +7,41 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Installation
+
+
+
+##react App
+
+- npm i react react-dom
+- npm install prop-types
+- npm install @radix-ui/react-dropdown-menu @remixicon/react
+- npm install qrcode.react
+- npm install --save-dev @vitejs/plugin-react
+
+- composer global require laravel/installer
+
+## Intertia dependencies
+
+## Server-side
+
+- composer require inertiajs/inertia-laravel
+- php artisan inertia:middleware
+
+## For Route
+- php artisan make:controller PageController
+
+
+## Client-side
+- npm install @inertiajs/react
+
+
+## Tailwind Installation
+- npm install -D tailwindcss postcss autoprefixer
+- npx tailwindcss init -p
+
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
