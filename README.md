@@ -1,7 +1,7 @@
 
-<div style="display: flex; justify-content:center; align-items: center;"><p><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-<p><img src="https://shorturl.at/Xy5HM" width="200" alt="React Logo"></p>
-<div/>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><img src="https://shorturl.at/Xy5HM" width="200" alt="React Logo"></p>
+
 
 
 ## Installation (Make sure Php Version is 8.2 to test go to cmd and type php -v)
