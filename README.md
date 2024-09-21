@@ -43,6 +43,11 @@ Then
 - php artisan cache:clear
 - php artisan config:clear
 
+## Modify .env to
+- DB_CONNECTION=null
+- SESSION_DRIVER=file
+
+
 ## Run the app
 - php artisan serve
 - npm run dev
