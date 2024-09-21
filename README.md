@@ -19,9 +19,11 @@
 
 - composer global require laravel/installer
 - composer require inertiajs/inertia-laravel
+
+## (Not Required)
 - php artisan inertia:middleware
 
-## For Route
+## For Route (Not Required)
 - php artisan make:controller PageController
 
 
@@ -31,12 +33,23 @@
 
 ## Tailwind Installation
 - npm install -D tailwindcss postcss autoprefixer
-- npx tailwindcss init -p
 
+
+## Create .env file
+## Inside .env.example file, copy the contents and paste to .env
+
+Then
+- php artisan key:generate
+- php artisan cache:clear
+- php artisan config:clear
 
 ## Run the app
 - php artisan serve
 - npm run dev
+
+
+
+
 
 ## About Laravel
 
