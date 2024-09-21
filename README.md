@@ -3,12 +3,6 @@
 <p align="center"><img src="https://shorturl.at/Xy5HM" width="200" alt="React Logo"></p>
 <span/>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
 ## Installation (Make sure Php Version is 8.2 to test go to cmd and type php -v)
 
@@ -42,8 +36,8 @@
 
 
 ## Run the app
--- php artisan serve
--- npm run dev
+- php artisan serve
+- npm run dev
 
 ## About Laravel
 
