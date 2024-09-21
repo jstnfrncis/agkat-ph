@@ -10,11 +10,8 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Installation
+## Installation (Make sure Php Version is 8.2 to test go to cmd and type php -v)
 
-
-
-##react App
 
 - npm i react react-dom
 - npm install prop-types
@@ -22,12 +19,12 @@
 - npm install qrcode.react
 - npm install --save-dev @vitejs/plugin-react
 
-- composer global require laravel/installer
 
-## Intertia dependencies
+
+## Inertia dependencies
 
 ## Server-side
-
+- composer global require laravel/installer
 - composer require inertiajs/inertia-laravel
 - php artisan inertia:middleware
 
@@ -44,6 +41,9 @@
 - npx tailwindcss init -p
 
 
+## Run the app
+-- php artisan serve
+-- npm run dev
 
 ## About Laravel
 
