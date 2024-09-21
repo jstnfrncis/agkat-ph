@@ -15,9 +15,8 @@
 
 
 
-## Inertia dependencies
+## Inertia dependencies (Server-side PHP)
 
-## Server-side
 - composer global require laravel/installer
 - composer require inertiajs/inertia-laravel
 - php artisan inertia:middleware
@@ -26,7 +25,7 @@
 - php artisan make:controller PageController
 
 
-## Client-side
+## Inertia dependencies (Client-side javascript)
 - npm install @inertiajs/react
 
 
