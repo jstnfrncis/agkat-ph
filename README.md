@@ -11,6 +11,8 @@
 - npm install prop-types
 - npm install @radix-ui/react-dropdown-menu @remixicon/react
 - npm install qrcode.react
+- npm install @heroicons/react
+- npm install nprogress
 - npm install --save-dev @vitejs/plugin-react
 
 
@@ -28,7 +30,7 @@
 
 
 ## Inertia dependencies (Client-side javascript)
-- npm install @inertiajs/react
+- npm install @inertiajs/inertia @inertiajs/inertia-react
 
 
 ## Tailwind Installation
