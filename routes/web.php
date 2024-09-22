@@ -3,6 +3,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+    sleep(1);
     return inertia('Home');
 });
 
@@ -13,24 +14,29 @@ Route::get('/', function () {
 // Authentication Components
 
 Route::get('/login-select', function () {
+    sleep(1);
     return inertia::render('LoginSelect'); 
 });
 
 Route::get('/login', function () {
+    sleep(1);
     return inertia::render('Login'); 
 });
 
 
 Route::get('/otpverification', function () {
+    sleep(1);
     return inertia::render('Otpverification'); 
 });
 
 
 Route::get('/password-reset', function () {
+    sleep(1);
     return inertia::render('LoginSelect'); 
 });
 
 Route::get('/otp-password-reset', function () {
+    sleep(1);
     return inertia::render('OtpPasswordReset'); 
 });
 
@@ -46,6 +52,7 @@ Route::get('/est-account', function () {
 Route::get('/est-qr', function () {
     return inertia::render('Establishment_QrCode'); 
 });
+
 
 
 

@@ -1,6 +1,12 @@
 import PropTypes from 'prop-types';
 
-const Button = ({ type, variant, onClick, children, className }) => {
+const Button = ({
+    type = 'button',
+    variant = 'primary',
+    onClick = () => {},
+    children,
+    className = ''
+}) => {
     const baseStyles = "flex w-full justify-center rounded-md px-3 py-1.5 text-sm leading-6 transition-all ";
 
     const variantStyles = {
@@ -22,17 +28,10 @@ const Button = ({ type, variant, onClick, children, className }) => {
 
 Button.propTypes = {
     type: PropTypes.string,
-    variant: PropTypes.oneOf(['primary', 'secondary','neutral']),
+    variant: PropTypes.oneOf(['primary', 'secondary', 'neutral']),
     onClick: PropTypes.func,
     children: PropTypes.node.isRequired,
     className: PropTypes.string
-};
-
-Button.defaultProps = {
-    type: 'button',
-    variant: 'primary',
-    onClick: () => {},
-    className: ''
 };
 
 export default Button;

@@ -2,6 +2,7 @@
 import HeaderLogo from '../UI/HeaderLogo';
 import Button from '../UI/Button';
 import MeshBackground from '../UI/MeshBackground';
+import { Link } from '@inertiajs/react';
 
 export default function Otpverification() {
 
@@ -21,7 +22,7 @@ export default function Otpverification() {
         <input type="number" className='px-3 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset  ring-gray-300 placeholder:text-icons focus:ring-2 focus:ring-inset focus:ring-accent sm:text-sm sm:leading-6 font-Manregular' />
 
           </div>
-          <a href="/explore-page"><Button variant="primary">Confirm</Button></a>
+          <Link href="/explore-page"><Button variant="primary">Confirm</Button></Link>
         </div>
         
         <div className='mt-8'>

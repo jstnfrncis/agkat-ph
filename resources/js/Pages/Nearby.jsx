@@ -1,4 +1,5 @@
 import NearbyCard from "../Functions/NearbyCard";
+import { Link } from '@inertiajs/react';
 
 export default function Nearby() {
   return (
@@ -7,7 +8,7 @@ export default function Nearby() {
       <div className='review-container md:my-8'>
         <div className='flex flex-col gap-4'>
           {Array.from({ length: 8 }).map((_, index) => (
-            <a href="#" className="hover:bg-highlight rounded-xl" key={index}>
+            <Link href="#" className="hover:bg-highlight rounded-xl" key={index}>
               <NearbyCard
                 className="!bg-accent"
                 name="Coffee Delight"
@@ -16,7 +17,7 @@ export default function Nearby() {
                 reviews="20+"
                 description="Coffee Shop | Cafe"
               />
-            </a>
+            </Link>
           ))}
         </div>
       </div>

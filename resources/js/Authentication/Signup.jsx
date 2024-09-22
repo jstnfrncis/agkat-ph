@@ -4,6 +4,7 @@ import Input from '../UI/Input';
 import HeaderLogo from '../UI/HeaderLogo';
 import Button from '../UI/Button';
 import MeshBackground from '../UI/MeshBackground';
+import { Link } from '@inertiajs/react';
 
 
 
@@ -92,7 +93,7 @@ export default function Signin() {
            <span className="font-Manbold text-sm">Sign in with Google</span>
          </a>
        </button>
-       <p className='font-Manregular text-sm'>Have an account? <a href="/otpverification" className='text-accent hover:underline'>Log in</a></p>
+       <p className='font-Manregular text-sm'>Have an account? <Link href="/otpverification" className='text-accent hover:underline'>Log in</Link></p>
      </div>
     </div>
   </div>
