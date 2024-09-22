@@ -1,5 +1,5 @@
 
-![](https://github.com/jstnfrncis/agkat-ph/blob/ea7f8cf92a48aa747e94d91bcbeda6f6d407bb6b/public/agkat-mock-up.jpg)
+![](https://github.com/jstnfrncis/agkat-ph/blob/ddf831f690cfa2ae52698788831977fc5e295ee8/public/agkat-mock-up.jpg)
 
 
 
