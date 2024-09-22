@@ -50,11 +50,12 @@ composer require inertiajs/inertia-laravel
 ```
 
 ## (Not Required)
-- php artisan inertia:middleware
-
-## For Route (Not Required)
 ```sh
 php artisan inertia:middleware
+```
+## For Route (Not Required)
+```sh
+php artisan make:controller PageController
 ```
 
 
