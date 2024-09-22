@@ -7,8 +7,10 @@
 ## Installation (Make sure Php Version is 8.2 to test go to cmd and type php -v)
 
 ## One-time Installation for (React)
--- npm install react react-dom prop-types @radix-ui/react-dropdown-menu @remixicon/react qrcode.react @heroicons/react nprogress && npm install --save-dev @vitejs/plugin-react
 
+```sh
+-- npm install react react-dom prop-types @radix-ui/react-dropdown-menu @remixicon/react qrcode.react @heroicons/react nprogress && npm install --save-dev @vitejs/plugin-react
+```
 ## The dependencies
 - npm i react react-dom
 - npm install prop-types
