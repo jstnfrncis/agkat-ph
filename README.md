@@ -12,43 +12,77 @@
 -- npm install react react-dom prop-types @radix-ui/react-dropdown-menu @remixicon/react qrcode.react @heroicons/react nprogress && npm install --save-dev @vitejs/plugin-react
 ```
 ## The dependencies
+```sh
 - npm i react react-dom
-- npm install prop-types
-- npm install @radix-ui/react-dropdown-menu @remixicon/react
-- npm install qrcode.react
-- npm install @heroicons/react
-- npm install nprogress
-- npm install --save-dev @vitejs/plugin-react
+```
+```sh
+npm i react react-dom
+```
+```sh
+npm install prop-types
+```
+```sh
+npm install @radix-ui/react-dropdown-menu @remixicon/react
+```
+```sh
+npm install qrcode.react
+```
+```sh
+npm install @heroicons/react
+```
+```sh
+npm install nprogress
+
+```
+```sh
+npm install --save-dev @vitejs/plugin-react
+```
 
 
 
 ## Inertia dependencies (Server-side PHP)
 
-- composer global require laravel/installer
-- composer require inertiajs/inertia-laravel
+```sh
+composer global require laravel/installer
+```
+```sh
+composer require inertiajs/inertia-laravel
+```
 
 ## (Not Required)
 - php artisan inertia:middleware
 
 ## For Route (Not Required)
-- php artisan make:controller PageController
+```sh
+php artisan inertia:middleware
+```
 
 
 ## Inertia dependencies (Client-side javascript)
-- npm install @inertiajs/inertia @inertiajs/inertia-react
+```sh
+npm install @inertiajs/inertia @inertiajs/inertia-react
+```
 
 
 ## Tailwind Installation
-- npm install -D tailwindcss postcss autoprefixer
+```sh
+npm install -D tailwindcss postcss autoprefixer
+```
 
 
 ## Create .env file
 ## Inside .env.example file, copy the contents and paste to .env
 
 Then
-- php artisan key:generate
-- php artisan cache:clear
-- php artisan config:clear
+```sh
+php artisan key:generate
+```
+```sh
+php artisan cache:clear
+```
+```sh
+php artisan config:clear
+```
 
 ## Modify .env to
 - DB_CONNECTION=null
@@ -56,8 +90,12 @@ Then
 
 
 ## Run the app
-- php artisan serve
-- npm run dev
+```sh
+php artisan serve
+```
+```sh
+npm run dev
+```
 
 
 
