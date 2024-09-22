@@ -10,33 +10,14 @@
 ```sh
 -- npm install react react-dom prop-types @radix-ui/react-dropdown-menu @remixicon/react qrcode.react @heroicons/react nprogress && npm install --save-dev @vitejs/plugin-react
 ```
-## The dependencies
-```sh
+## The dependencies of the One-time Installation for (React)
 - npm i react react-dom
-```
-```sh
-npm i react react-dom
-```
-```sh
-npm install prop-types
-```
-```sh
-npm install @radix-ui/react-dropdown-menu @remixicon/react
-```
-```sh
-npm install qrcode.react
-```
-```sh
-npm install @heroicons/react
-```
-```sh
-npm install nprogress
-
-```
-```sh
-npm install --save-dev @vitejs/plugin-react
-```
-
+- npm install prop-types
+- npm install @radix-ui/react-dropdown-menu @remixicon/react
+- npm install qrcode.react
+- npm install @heroicons/react
+- npm install nprogress
+- npm install --save-dev @vitejs/plugin-react
 
 
 ## Inertia dependencies (Server-side PHP)
