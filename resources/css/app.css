@@ -9,6 +9,13 @@
   text-align: center;
 }
 
+@media (max-width:640px) {
+  #app {
+    padding: 1rem !important;
+   
+  }
+}
+
 @font-face {
   font-family: 'ClashDisplay';
   src: url('/public/assets/ClashDisplayMedium.otf') format('opentype');

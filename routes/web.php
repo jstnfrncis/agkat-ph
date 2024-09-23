@@ -3,7 +3,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    sleep(1);
+    // sleep(1);
     return inertia('Home');
 });
 
@@ -23,6 +23,10 @@ Route::get('/login', function () {
     return inertia::render('Login'); 
 });
 
+Route::get('/signup', function () {
+    sleep(1);
+    return inertia::render('Signup'); 
+});
 
 Route::get('/otpverification', function () {
     sleep(1);
