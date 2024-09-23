@@ -46,15 +46,6 @@ export default function Signin() {
           <Input />
         </div>
         <div>
-          <Input
-           label="Phone number"
-           id="number"
-           name="number"
-           type="number" 
-           placeholder="09********"
-           />
-        </div>
-        <div>
            <Input
                   label="Password"
                   id="password"
@@ -76,6 +67,7 @@ export default function Signin() {
                   />
          <label htmlFor="checkbox">Show password</label>
           </div>
+      
           <a href="/otpverification"><Button variant="primary">Create account</Button></a>
         </div>
       </form>
