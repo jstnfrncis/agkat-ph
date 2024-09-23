@@ -1,12 +1,14 @@
 import './bootstrap';
 import '../css/app.css'
-
+import { InertiaProgress } from '@inertiajs/progress';
 import { createInertiaApp } from '@inertiajs/react'
 import { createRoot } from 'react-dom/client'
 
 createInertiaApp({
-  resolve: name => {
 
+  title: (title) =>
+    title ? `${title} - Agkat PH` : "Agkat PH",
+  resolve: name => {
     const pages = import.meta.glob('./Pages/**/*.jsx', { eager: true });
     const auth = import.meta.glob('./Authentication/**/*.jsx', { eager: true });
     const establishment = import.meta.glob('./Establishment/**/*.jsx', { eager: true });
@@ -31,3 +33,18 @@ createInertiaApp({
     createRoot(el).render(<App {...props} />)
   },
 });
+
+InertiaProgress.init({
+  delay: 1000,
+  
+  // The color of the progress bar.
+  color: '#5D5FEF',
+
+  // Whether to include the default NProgress styles.
+  includeCSS: true,
+
+  // Whether the NProgress spinner will be shown.
+  showSpinner: false,
+  
+})
+

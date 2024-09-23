@@ -20,11 +20,11 @@ function Home() {
       </div>
 
       <div className="flex flex-col gap-24 mt-40 md:gap-24 lg:gap-60">
-        <section id="discover">
+        <section>
           <Socialproof />
         </section>
 
-        <section>
+        <section id="discover">
           <FeaturedSpots />
         </section>
 

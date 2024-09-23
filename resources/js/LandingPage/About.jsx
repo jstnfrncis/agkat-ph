@@ -55,7 +55,7 @@ About.propTypes = {
     BentoCard.propTypes = {
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
-      graphic: PropTypes.string.isRequired,
+      graphic: PropTypes.node.isRequired,
 
 
   };

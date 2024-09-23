@@ -1,4 +1,5 @@
 import Logo from "../UI/Logo"
+import { Link } from '@inertiajs/react';
 
 
 const  Footer = () => {
@@ -10,8 +11,8 @@ const  Footer = () => {
         <p className="text-icons font-Manregular font-light ">© 2024 agkat.ph  All rights reserved.</p>
        </div>
         <div className="flex font-Manbold text-primary gap-4 font-medium mt-14">
-            <a href="" className="hover:text-accent transition">Terms & Conditions</a>
-            <a href="" className="hover:text-accent transition">Privacy Policy</a>
+            <Link href="" className="hover:text-accent transition">Terms & Conditions</Link>
+            <Link href="" className="hover:text-accent transition">Privacy Policy</Link>
         </div>
     </div>
   )

@@ -20,7 +20,6 @@ export default function Navigation() {
             <div className="nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
 
                 <ul className="flex md:flex-row flex-col md:items-center ] gap-11 font-epilogue bold">
-                    <li><a href="#home" className='hover:text-accent transition'>Top-rated</a></li>
                     <li><a href="#event" className='hover:text-accent transition'>News & Events</a></li>
                     <li><a href="#discover" className='hover:text-accent transition'>Discover</a></li>
                     <li ><a href="#about" className='hover:text-accent transition'>About</a></li>
@@ -50,12 +49,11 @@ export default function Navigation() {
                 </div>
 
               <div className='flex flex-col text-left py-6 border-t border-b border-slate-900/10 '>
-                  <a href="#" className="py-3 px-2 rounded-xl text-primary hover:text-accent transition hover:bg-highlight">Top-rated</a>
                   <a href="#event" className="py-3 px-2 rounded-xl text-primary hover:text-accent transition hover:bg-highlight">News & Events</a>
                   <a href="#discover" className="py-3 px-2 rounded-xl text-primary hover:text-accent transition hover:bg-highlight">Discover</a>
                   <a href="#about" className="py-3 px-2 rounded-xl text-primary hover:text-accent transition hover:bg-highlight">About</a>
               </div>
-                <a href="/login-select" className="my-4 bg-accent text-white  hover:bg-blue-900 transition inline-flex justify-center rounded-lg text-sm  py-3 px-4 w-full">Sign in</a>
+                <Link href="/login-select" className="my-4 bg-accent text-white  hover:bg-blue-900 transition inline-flex justify-center rounded-lg text-sm  py-3 px-4 w-full">Sign in</Link>
                 
                
             </div>

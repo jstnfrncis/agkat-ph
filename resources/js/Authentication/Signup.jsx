@@ -4,6 +4,7 @@ import Input from '../UI/Input';
 import HeaderLogo from '../UI/HeaderLogo';
 import Button from '../UI/Button';
 import MeshBackground from '../UI/MeshBackground';
+import { Link } from '@inertiajs/react';
 
 
 
@@ -45,15 +46,6 @@ export default function Signin() {
           <Input />
         </div>
         <div>
-          <Input
-           label="Phone number"
-           id="number"
-           name="number"
-           type="number" 
-           placeholder="09********"
-           />
-        </div>
-        <div>
            <Input
                   label="Password"
                   id="password"
@@ -75,6 +67,7 @@ export default function Signin() {
                   />
          <label htmlFor="checkbox">Show password</label>
           </div>
+      
           <a href="/otpverification"><Button variant="primary">Create account</Button></a>
         </div>
       </form>
@@ -92,7 +85,7 @@ export default function Signin() {
            <span className="font-Manbold text-sm">Sign in with Google</span>
          </a>
        </button>
-       <p className='font-Manregular text-sm'>Have an account? <a href="/otpverification" className='text-accent hover:underline'>Log in</a></p>
+       <p className='font-Manregular text-sm'>Have an account? <Link href="/otpverification" className='text-accent hover:underline'>Log in</Link></p>
      </div>
     </div>
   </div>
