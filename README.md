@@ -10,7 +10,7 @@
 ```sh
 -- npm install react react-dom prop-types @radix-ui/react-dropdown-menu @remixicon/react qrcode.react @heroicons/react nprogress && npm install --save-dev @vitejs/plugin-react
 ```
-## The dependencies of the One-time Installation for (React)
+## Dependencies (React)
 - npm i react react-dom
 - npm install prop-types
 - npm install @radix-ui/react-dropdown-menu @remixicon/react
