@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\GoogleController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +48,8 @@ Route::get('/otp-password-reset', function () {
 
 
 
+
+
 // Establishment Components ===== Establishment_Account || Establishment_QrCode || 
 
 Route::get('/est-account', function () {
@@ -65,7 +68,7 @@ Route::get('/est-qr', function () {
 
 Route::get('/explore-page', function () {
     return inertia::render('ExplorePage'); 
-});
+})->name('explore-page');
 
 Route::get('/overview', function () {
     return inertia::render('OverviewReview'); 
@@ -79,3 +82,9 @@ Route::get('/rate', function () {
 Route::fallback(function () {
     return Inertia::render('NotFound');
 });
+
+//google auth routes
+
+Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
+Route::get('/auth/google/callback', [GoogleController::class, 'callbackGoogle'])->name('google.callback');
+
