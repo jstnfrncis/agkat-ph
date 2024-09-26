@@ -5,7 +5,7 @@ import Button from '../UI/Button';
 const FeaturedSpots = ({ className }) => {
   return (
     <div className="flex flex-col md:gap-12 gap-4">
-      <h1 className="font-clash text-4xl md:text-5xl lg:text-6xl text-left">Featured spots</h1>
+      <h1 className="font-clash text-primary text-4xl md:text-5xl lg:text-6xl text-left">Featured spots</h1>
 
       <div className={`grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 ${className}`}>
         <FeaturedCard
