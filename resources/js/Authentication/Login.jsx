@@ -66,9 +66,10 @@ export default function Login() {
            Forgot password?
          </Link>
        </div>
+         <a href="http://127.0.0.1:8000/auth/google" className="flex items-center gap-2 leading-6 text-primary hover:text-indigo-500">
       
        <button className=" bg-white flex items-center justify-center gap-2 px-3  w-full rounded-md border-0 py-2 ring-1 ring-stroke shadow-sm active:scale-[0.98] active-duration-75 transition-all">
-         <a href="http://127.0.0.1:8000/auth/google" className="flex items-center gap-2 leading-6 text-primary hover:text-indigo-500">
+        
            <svg viewBox="0 0 24 24" aria-hidden="true" className="w-5 h-5">
              <path d="M12.0003 4.75C13.7703 4.75 15.3553 5.36002 16.6053 6.54998L20.0303 3.125C17.9502 1.19 15.2353 0 12.0003 0C7.31028 0 3.25527 2.69 1.28027 6.60998L5.27028 9.70498C6.21525 6.86002 8.87028 4.75 12.0003 4.75Z" fill="#EA4335"></path>
              <path d="M23.49 12.275C23.49 11.49 23.415 10.73 23.3 10H12V14.51H18.47C18.18 15.99 17.34 17.25 16.08 18.1L19.945 21.1C22.2 19.01 23.49 15.92 23.49 12.275Z" fill="#4285F4"></path>
@@ -76,8 +77,9 @@ export default function Login() {
              <path d="M12.0004 24.0001C15.2404 24.0001 17.9654 22.935 19.9454 21.095L16.0804 18.095C15.0054 18.82 13.6204 19.245 12.0004 19.245C8.8704 19.245 6.21537 17.135 5.2654 14.29L1.27539 17.385C3.25539 21.31 7.3104 24.0001 12.0004 24.0001Z" fill="#34A853"></path>
            </svg>
            <span className="font-Manbold text-sm">Sign in with Google</span>
-         </a>
+         
        </button>
+       </a>
        <p className='font-Manregular text-sm'>Don&apos;t have an account? <Link href="/signup" className='text-accent hover:underline'>Create account</Link></p>
      </div>
     </div>

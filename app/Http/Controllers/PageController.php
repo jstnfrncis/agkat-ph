@@ -16,4 +16,6 @@ class PageController extends Controller
         // Optionally handle 404 for pages that don't exist
         abort(404);
     }
+
+    
 }
