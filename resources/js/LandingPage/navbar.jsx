@@ -20,9 +20,9 @@ export default function Navigation() {
             <div className="nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
 
                 <ul className="flex md:flex-row flex-col md:items-center ] gap-11 font-epilogue bold">
-                    <li><a href="#event" className='hover:text-accent transition'>News & Events</a></li>
-                    <li><a href="#discover" className='hover:text-accent transition'>Discover</a></li>
-                    <li ><a href="#about" className='hover:text-accent transition'>About</a></li>
+                    <li><a href="#event" className='hover:text-accent transition text-primary'>News & Events</a></li>
+                    <li><a href="#discover" className='hover:text-accent transition text-primary'>Discover</a></li>
+                    <li ><a href="#about" className='hover:text-accent transition text-primary'>About</a></li>
                     <Link href="/login-select"><button className="bg-accent hover:bg-blue-900 transition-all text-white px-6 py-2 rounded-lg active:scale-[0.98] active-duration-75 ">Sign in</button></Link>
                 </ul>
             </div>

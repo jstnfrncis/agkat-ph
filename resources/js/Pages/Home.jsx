@@ -14,7 +14,7 @@ function Home() {
   return (
     <>
       <div>
-        <Navbar />
+        {/* <Navbar  /> */}
         <Hero />
         <MeshBackground />
       </div>
