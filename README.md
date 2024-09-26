@@ -4,6 +4,15 @@
 
 
 ## Installation (Make sure Php Version is 8.2 to test go to cmd and type php -v)
+```
+composer require laravel/breeze --dev
+```
+```
+php artisan breeze:install
+```
+```
+npm install @tailwindcss/forms
+```
 
 ## One-time Installation for (React)
 
