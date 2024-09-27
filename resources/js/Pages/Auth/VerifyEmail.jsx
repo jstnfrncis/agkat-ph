@@ -1,5 +1,6 @@
 import PrimaryButton from '@/Components/PrimaryButton';
 import GuestLayout from '@/Layouts/GuestLayout';
+import MeshBackground from '@/UI/MeshBackground';
 import { Head, Link, useForm } from '@inertiajs/react';
 
 export default function VerifyEmail({ status }) {
@@ -14,12 +15,17 @@ export default function VerifyEmail({ status }) {
     return (
         <GuestLayout>
             <Head title="Email Verification" />
-
-            <div className="mb-4 text-sm text-gray-600">
-                Thanks for signing up! Before getting started, could you verify
+            <div className="flex mt-24 flex-col min-h-auto items-center justify-center px-8 py-12 bg-white-100 max-w-[500px] mx-auto  bg-white rounded-xl ring-1 ring-gray-100 shadow-sm">
+      
+            <div className="mb-4 text-primary font-Manregular">
+               <h2 className='text-2xl font-bold mb-2'> Thanks for signing up!</h2>
+               <p>
+                Before getting started, could you verify
                 your email address by clicking on the link we just emailed to
                 you? If you didn't receive the email, we will gladly send you
                 another.
+               </p>
+               
             </div>
 
             {status === 'verification-link-sent' && (
@@ -29,22 +35,27 @@ export default function VerifyEmail({ status }) {
                 </div>
             )}
 
-            <form onSubmit={submit}>
-                <div className="mt-4 flex items-center justify-between">
+            <form onSubmit={submit} className='w-full'>
+                <div className="mt-4 flex flex-col gap-4  items-center justify-between">
                     <PrimaryButton disabled={processing}>
                         Resend Verification Email
                     </PrimaryButton>
 
                     <Link
+                        
                         href={route('logout')}
                         method="post"
                         as="button"
-                        className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                        className="font-Manbold hover:underline text-accent px-2 py-4 text-sm leading-6 l w-full"
                     >
-                        Log Out
+                        Log out
                     </Link>
                 </div>
             </form>
+            </div>
+            
+           
+            <MeshBackground/>
         </GuestLayout>
     );
 }

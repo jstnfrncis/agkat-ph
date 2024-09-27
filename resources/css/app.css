@@ -44,7 +44,6 @@ body{
   background-position: left top;
 }
 
-
 @layer utilities{
   .paused{
     animation-play-state: paused;

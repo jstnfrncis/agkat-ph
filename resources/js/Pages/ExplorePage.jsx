@@ -13,7 +13,7 @@ const  FeaturedSpots = ( {className}) => {
     return (
       <>
      
-      <div className='relative flex flex-col gap-6 font-Manregular text-left px-12 py-24 bg-white rounded-xl ring-1 ring-gray-100 shadow-sm md:my-24 my-12 w-full h-90'>
+      <div className='relative flex flex-col gap-6 font-Manregular text-left px-12 py-16 bg-white rounded-xl ring-1 ring-gray-100 shadow-sm md:my-16 my-12 w-full h-90'>
       <div className='absolute inset-0 bg-none md:bg-[url("/explore-banner.png")] bg-cover bg-center rounded-xl'/>
          <div className='relative z-10 '>
            <h1 className='font-clash text-4xl md:text-5xl lg:text-6xl'>Start exploring!</h1>
@@ -22,11 +22,11 @@ const  FeaturedSpots = ( {className}) => {
       
         </div>
 
-    <div className='max-w-custom mx-auto md:my-28'>
+    <div className='max-w-custom mx-auto md:my-24'>
           <div className='flex flex-col gap-4 justify-between lg:flex-row lg:gap-4 mb-16'>
             <div className='relative font-Manregular w-full md:w-full'>
           
-            <input className="bg-white relative font-Manbold block rounded-md appearance-none bg-transparent pl-12 py-2 pr-12 placeholder:text-primary sm:text-sm sm:leading-6  ring-stroke shadow-sm w-full" placeholder="Enter a keyword" type="text"/>
+            <input className="bg-white relative font-Manbold block rounded-md appearance-none bg-transparent pl-12 py-2 pr-12 placeholder:text-primary sm:text-sm sm:leading-6 border-none  ring-stroke shadow-sm w-full" placeholder="Enter a keyword" type="text"/>
             <img src="/search-icon.svg" alt="" className='text-primary absolute left-5 top-1/2 transform -translate-y-1/2' />
             </div>
             <div className=' flex-col gap-4 grid grid-cols-2 sm:grid-cols-2 sm:gap-2 lg:flex lg:flex-row lg:gap-4 lg:justify-between '>

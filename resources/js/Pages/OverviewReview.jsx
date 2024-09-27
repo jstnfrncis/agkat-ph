@@ -46,7 +46,7 @@ export default function  OverviewReview () {
         </div>
 
         <div className='flex flex-col gap-4'>
-        <Link href="/rate"><Button variant='primary'>Write a review</Button></Link>
+        <Link href="/create-review"><Button variant='primary'>Write a review</Button></Link>
     
         </div>
       </div>
