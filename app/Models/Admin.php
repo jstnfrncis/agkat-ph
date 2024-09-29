@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Establishment extends Authenticatable
+class Admin extends Authenticatable
 {
     use HasFactory, Notifiable ;
 
@@ -16,7 +16,7 @@ class Establishment extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $guard = 'establishment';
+    protected $guard = 'admin';
     protected $fillable = [
         'name',
         'email',

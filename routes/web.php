@@ -2,9 +2,27 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+
+
+// Admin Route =================================================== //
+
+Route::prefix('admin')->group(function() {
+    Route::get('/login', [AdminController::class, 'Index'])->name('admin.login');
+    Route::post('/login/user', [AdminController::class, 'Login'])->name('admin.login.user');
+    Route::get('/dashboard', [AdminController::class, 'Dashboard'])->name('admin.dashboard')->middleware('admin');
+    Route::get('/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout')->middleware('admin');
+    Route::get('/register', [AdminController::class, 'AdminRegister'])->name('admin.register');
+    Route::post('/register/create', [AdminController::class, 'AdminRegisterCreate'])->name('admin.register.create');
+
+
+});
+
+
+// Admin Route =================================================== //
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -28,6 +46,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/explore-page', function (){return Inertia::render('ExplorePage'); })->name('explore-page');
     Route::get('/overview', function (){return Inertia::render('OverviewReview'); })->name('overview');
     Route::get('/create-review', function (){return Inertia::render('WriteReview'); })->name('create-review');
+    
 });
 
 
@@ -35,18 +54,14 @@ Route::get('/login-select', function () {
     return inertia::render('LoginSelect');
 });
 
-// Route::get('/explore-page', function () {
-//     return inertia::render('ExplorePage');
-// });
+
 
 require __DIR__.'/auth.php';
 
 
-Route::get('admin/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'admin']);
+//Route::get('admin/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'admin']);
 
-// Route::get('admin/dashboard', function () {
-//     return Inertia::render('admin/AdminDashboard'); // Adjust the path as needed
-// });
+
 
 Route::fallback(function () {
     return Inertia::render('NotFound');

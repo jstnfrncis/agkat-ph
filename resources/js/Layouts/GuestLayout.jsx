@@ -5,8 +5,8 @@ export default function Guest({ children }) {
     return (
         <div className="flex flex-col items-center sm:justify-center">
             <div>
+            <Logo/>
                 <Link href="/">
-                   <Logo/>
                 </Link>
             </div>
 
