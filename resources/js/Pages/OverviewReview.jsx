@@ -1,5 +1,6 @@
 // To remove the classnName is missing a prop validation. Not required.
 import HeaderLogo from '../UI/HeaderLogo';
+import { Link } from '@inertiajs/react';
 import Button from '../UI/Button';
 import Footer from '../LandingPage/Footer';
 import ReviewPagination from '../Functions/ReviewPagination';
@@ -45,7 +46,7 @@ export default function  OverviewReview () {
         </div>
 
         <div className='flex flex-col gap-4'>
-        <a href="/write-review"><Button variant='primary'>Write a review</Button></a>
+        <Link href="/create-review"><Button variant='primary'>Write a review</Button></Link>
     
         </div>
       </div>

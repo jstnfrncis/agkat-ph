@@ -7,7 +7,7 @@ const  NewsEvents = ({className}) => {
   return (
   <div className= {`flex flex-col rounded-lg  gap-12 text-left  ${className}`}>
 
-        <div>
+        <div className='text-primary'>
           <h1 className="font-clash text-4xl md:text-5xl lg:text-6xl">News & Events</h1>
           <p className="font-Manregular">Stay updated with the latest news, sales, and events from your favorite 
           cafes and restaurants. </p>

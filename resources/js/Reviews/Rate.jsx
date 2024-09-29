@@ -28,7 +28,7 @@ export default function Rate(){
               </section>
               <section className="sm:flex  justify-between items-center ">
                 <div className="flex flex-col text-left gap-2">
-                  <h1 className="text-2xl md:text-4xl font-Manbold text-primary">Ambiance</h1>
+                  <h1 className="text-2xl md:text-4xl font-Manbold text-primary">Cleanliness</h1>
                   <p>Rate the atmosphere, decor, and overall vibe of the cafe or restaurant.</p>
                 </div>
                 <div className="flex gap-2 mt-2">
