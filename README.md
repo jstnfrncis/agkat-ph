@@ -86,6 +86,11 @@ php artisan serve
 ```sh
 npm run dev
 ```
+## Update Route for Ziggy
+```
+php artisan route:list
+php artisan route:clear
+```
 
 ## Cleaner
 ```
