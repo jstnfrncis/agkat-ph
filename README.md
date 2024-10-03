@@ -31,7 +31,7 @@ php artisan storage:link
 - npm install @heroicons/react
 - npm install nprogress
 - npm install --save-dev @vitejs/plugin-react
-
+- npm install chart.js react-chartjs-2
 
 ## Inertia dependencies (Server-side PHP)
 
