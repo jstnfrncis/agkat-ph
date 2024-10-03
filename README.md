@@ -13,6 +13,10 @@ php artisan breeze:install
 ```
 npm install @tailwindcss/forms
 ```
+## Saving Cover Photos storage\app\public
+```
+php artisan storage:link
+```
 
 ## One-time Installation for (React)
 
