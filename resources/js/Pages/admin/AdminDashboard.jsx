@@ -5,9 +5,9 @@ import MeshBackground from '@/UI/MeshBackground';
 export default function AdminDashboard() {
 
   const { adminName, adminEmail } = usePage().props;
-  const { users, auth } = usePage().props; 
+  const { users, auth, establishments } = usePage().props; 
 
-    
+    console.log(users, establishments);
  
     return (
         <>
@@ -26,7 +26,7 @@ export default function AdminDashboard() {
                     <li>
                         <a
                         href="#"
-                        className="block rounded-lg bg-highlight px-4 py-4 text-sm font-medium text-gray-700"
+                        className="block rounded-lg bg-highlight px-4 py-4 text-sm font-medium text-accent"
                         >
                         Dashboard
                         </a>
@@ -280,12 +280,12 @@ export default function AdminDashboard() {
                         <tbody className="divide-y divide-gray-200">
 
 
-                        {users.map(user => (
+                        {establishments.map(establishment => (
                                         <tr >
-                                            <td className="whitespace-nowrap px-4 py-2">{user.id}</td>
-                                            <td className="whitespace-nowrap px-4 py-2">{user.name}</td>
-                                            <td className="whitespace-nowrap px-4 py-2">{user.email}</td>
-                                            <td className="whitespace-nowrap px-4 py-2 capitalize">{user.usertype}</td>
+                                            <td className="whitespace-nowrap px-4 py-2">{establishments.id}</td>
+                                            <td className="whitespace-nowrap px-4 py-2">{establishments.name}</td>
+                                            <td className="whitespace-nowrap px-4 py-2">{establishments.email}</td>
+                                            <td className="whitespace-nowrap px-4 py-2 capitalize">{establishments.usertype}</td>
                                             <td className="whitespace-nowrap px-4 py-2">
                                                 <a href="#" className="inline-block rounded px-4 py-2 text-accent hover:text-indigo-800">
                                                     Edit

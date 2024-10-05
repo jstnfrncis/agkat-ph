@@ -1,10 +1,12 @@
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
+import Checkbox from '@/Components/Checkbox';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
 import MeshBackground from '@/UI/MeshBackground';
 import { Head, Link, useForm } from '@inertiajs/react';
+import {useState } from 'react';
 
 export default function AdminRegister({flash}) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -13,6 +15,8 @@ export default function AdminRegister({flash}) {
         password: '',
         password_confirmation: '',
     });
+
+    const [showPassword, setShowPassword] = useState(false);
 
     const submit = (e) => {
         e.preventDefault();
@@ -76,7 +80,7 @@ export default function AdminRegister({flash}) {
 
                     <TextInput
                         id="password"
-                        type="password"
+                        type={showPassword ? 'text' : 'password'}
                         name="password"
                         value={data.password}
                         className="mt-1 block w-full"
@@ -95,7 +99,7 @@ export default function AdminRegister({flash}) {
 
                     <TextInput
                         id="password_confirmation"
-                        type="password"
+                        type={showPassword ? 'text' : 'password'}
                         name="password_confirmation"
                         value={data.password_confirmation}
                         className="mt-1 block w-full"
@@ -111,6 +115,19 @@ export default function AdminRegister({flash}) {
                         className="mt-2"
                     />
                 </div>
+                <div className="mt-4 flex items-center">
+                <Checkbox
+                    id="show-password"
+                    checked={showPassword}
+                    onChange={() => setShowPassword(!showPassword)} // Toggle show password state
+                />
+                <label
+                    htmlFor="show-password"
+                    className="ms-2 text-sm text-gray-600 cursor-pointer" // Add cursor pointer
+                >
+                    Show password
+                </label>
+            </div>
 
                 <div className="flex flex-col gap-2 items-center justify-end my-4">
                 

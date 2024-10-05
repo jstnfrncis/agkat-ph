@@ -79,7 +79,7 @@ export default function  OverviewReview () {
     {/* Container of Overview Review */}
     
     <div className=' my-14 w-full bg-white ring-1 ring-icons rounded-2xl  p-6'>
-    <h1 className='text-3xl ,d:mb-20'>Read overviews</h1>
+    <h1 className='text-xl font-Manbold'>Read 33 Reviews</h1>
        <ReviewCard
         profileImage={review.profileImage}
         userName={review.userName}

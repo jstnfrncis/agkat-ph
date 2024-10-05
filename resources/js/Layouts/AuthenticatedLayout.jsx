@@ -11,7 +11,7 @@ export default function Authenticated({ header, children }) {
         useState(false);
 
     return (
-        <div className="min-h-screen  max-w-custom mx-auto font-Manregular ">
+        <div className="min-h-screen mx-auto font-Manregular ">
             <nav className="border-b border-gray-100 bg-white">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
                     <div className="flex h-16 justify-between">

@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 use App\Models\Admin;
 use App\Models\User;
+use App\Models\Establishment;
+
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -19,6 +21,6 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        Admin::factory(2)->create();
+        \App\Models\Establishment::factory(2)->create();
     }
 }

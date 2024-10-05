@@ -22,6 +22,7 @@ class Establishment extends Authenticatable
         'email',
         'password',
         'status',
+        'sale_section_photo',
 
     ];
 

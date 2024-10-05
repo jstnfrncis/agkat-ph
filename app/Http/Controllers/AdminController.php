@@ -21,20 +21,34 @@ class AdminController extends Controller
       // Auth for admin
       $admin = Auth::guard('admin')->user(); 
 
-      // Data to get the users and show to the admin Dashboard
-      $currentUserId = auth()->id();
-      $users = User::where('usertype', 'user')
-      ->where('id', '!=', $currentUserId) // Exclude the current user
-      ->get();
+      // // Data to get the users and show to the admin Dashboard
+      // $currentUserId = auth()->id();
+      // $users = User::where('usertype', 'user')
+      // ->where('id', '!=', $currentUserId) // Exclude the current user
+      // ->get();
 
+      // $establishmentsId = auth()->id();
+      // $establishments = User::where('usertype', 'establishment')
+      // ->where('id', '!=', $establishmentsId) // Exclude the current user
+      // ->get();
+
+       $adminId= Auth::guard('admin')->id(); // Get the current admin's ID
+
+      $users = User::where('usertype', 'user')
+         ->where('id', '!=', $adminId) // Exclude the admin
+         ->get();
+         
+
+  $establishments = User::where('usertype', 'establishment')->get();
 
 
        // Data to get the Admin and show to the admin Dashboard
-    return Inertia::render('admin/AdminDashboard', [
-      'adminName' => $admin->name,   // Pass admin name
-      'adminEmail' => $admin->email,  // Pass admin email
-      'users' => $users,
-    ]);
+       return Inertia::render('admin/AdminDashboard', [
+         'adminName' => $admin->name,
+         'adminEmail' => $admin->email,
+         'users' => $users,
+         'establishments' => $establishments, 
+     ]);
     
    }
 

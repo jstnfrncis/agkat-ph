@@ -5,7 +5,7 @@ import TextInput from '@/Components/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
 import MeshBackground from '@/UI/MeshBackground';
 import { Head, Link, useForm, usePage} from '@inertiajs/react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
 export default function AdminLogin({ status, canResetPassword }) {
@@ -14,6 +14,7 @@ export default function AdminLogin({ status, canResetPassword }) {
         password: '',
         remember: false,
     });
+    const [showPassword, setShowPassword] = useState(false);
    
 
     const { props: { flash = {} } } = usePage();
@@ -82,7 +83,7 @@ export default function AdminLogin({ status, canResetPassword }) {
 
             <TextInput
                     id="password"
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
                     name="password"
                     value={data.password}
                     className="mt-1 block w-full"
@@ -90,6 +91,19 @@ export default function AdminLogin({ status, canResetPassword }) {
                     onChange={(e) => setData('password', e.target.value)}
                     />
                     <InputError message={errors.password} className="mt-2" />
+            </div>
+            <div className="mt-4 flex items-center">
+                <Checkbox
+                    id="show-password"
+                    checked={showPassword}
+                    onChange={() => setShowPassword(!showPassword)} // Toggle show password state
+                />
+                <label
+                    htmlFor="show-password"
+                    className="ms-2 text-sm text-gray-600 cursor-pointer" // Add cursor pointer
+                >
+                    Show password
+                </label>
             </div>
 
             {/* Incorrect Email or Password  */}
@@ -113,7 +127,7 @@ export default function AdminLogin({ status, canResetPassword }) {
                     {flash.loggedout}
                 </div>
             )}
-            <div className="mt-4 block">
+            {/* <div className="mt-4 block">
                         <label className="flex items-center">
                             <Checkbox
                                 name="remember"
@@ -126,7 +140,7 @@ export default function AdminLogin({ status, canResetPassword }) {
                                 Remember me
                             </span>
                         </label>
-                    </div>
+                    </div> */}
 
                     <div className="mt-4 flex flex-col items-center">
                 

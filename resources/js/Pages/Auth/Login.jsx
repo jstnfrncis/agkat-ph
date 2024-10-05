@@ -5,6 +5,8 @@ import TextInput from '@/Components/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
 import MeshBackground from '@/UI/MeshBackground';
 import { Head, Link, useForm } from '@inertiajs/react';
+import { useState } from 'react';
+
 
 
 
@@ -15,6 +17,7 @@ export default function Login({ status, canResetPassword }) {
         remember: false,
     });
 
+    const [showPassword, setShowPassword] = useState(false);
     const submit = (e) => {
         e.preventDefault();
 
@@ -27,19 +30,23 @@ export default function Login({ status, canResetPassword }) {
         <GuestLayout>
             <Head title="Log in" />
 
-            {status && (
-                <div className="mb-4 text-sm font-medium text-green-600">
+           
+    <div className="flex min-h-[70vh] items-center justify-center px-2 py-12  max-w-[400px] mx-auto font-Manregular">
+    <div className="flex flex-col w-full px-6 py-8 bg-white shadow-md rounded-lg">
+  
+        <h2 className="text-left text-xl leading-9 tracking-tight text-gray-900 font-Manbold">
+            Log in your account
+            
+        </h2>
+        {status && (
+                <div className="mb-4 text-sm font-medium text-green-600 text">
                     {status}
                 </div>
             )}
-    <div className="flex min-h-[70vh] items-center justify-center px-2 py-12  max-w-[400px] mx-auto font-Manregular">
-    <div className="flex flex-col w-full px-6 py-8 bg-white shadow-md rounded-lg">
-        <h2 className="text-left text-xl leading-9 tracking-tight text-gray-900 font-Manbold">
-            Log in your account
-        </h2>
         <form  className="w-full flex flex-col gap-2 mt-8" onSubmit={submit}>
             <div>
             <label className='font-Manbold text-sm leading-6 text-primary text-left'>Email</label>
+            
             <TextInput
                             id="email"
                             type="email"
@@ -59,7 +66,7 @@ export default function Login({ status, canResetPassword }) {
 
             <TextInput
                     id="password"
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
                     name="password"
                     value={data.password}
                     className="mt-1 block w-full"
@@ -68,7 +75,21 @@ export default function Login({ status, canResetPassword }) {
                     />
                     <InputError message={errors.password} className="mt-2" />
             </div>
-            <div className="mt-4 block">
+            <div className="mt-4 flex items-center">
+                <Checkbox
+                    id="show-password"
+                    checked={showPassword}
+                    onChange={() => setShowPassword(!showPassword)} // Toggle show password state
+                />
+                <label
+                    htmlFor="show-password"
+                    className="ms-2 text-sm text-gray-600 cursor-pointer" // Add cursor pointer
+                >
+                    Show password
+                </label>
+            </div>
+
+            {/* <div className="mt-4 block">
                         <label className="flex items-center">
                             <Checkbox
                                 name="remember"
@@ -81,7 +102,7 @@ export default function Login({ status, canResetPassword }) {
                                 Remember me
                             </span>
                         </label>
-                    </div>
+                    </div> */}
 
                     <div className="mt-4 flex flex-col items-center">
                 

@@ -5,7 +5,7 @@ export default function ReviewCard({ profileImage, userName, ratingImage, review
         <div className='review-container md:my-16 my-8'>
             <div className='flex items-center gap-4'>
                 <img src={profileImage} alt="profile" />
-                <h2 className='text-2xl'>{userName}</h2>
+                <h2 className='text-xl font-Manbold'>{userName}</h2>
             </div>
             <div>
                 <img src={ratingImage} alt="rating" />

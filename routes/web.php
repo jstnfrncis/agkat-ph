@@ -3,9 +3,11 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EstablishmentController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Middleware\EstablishmentMiddleware;
 
 
 // Admin Route =================================================== //
@@ -23,6 +25,29 @@ Route::prefix('admin')->group(function() {
 
 
 // Admin Route =================================================== //
+
+
+// Establishment Route =================================================== //
+
+
+
+Route::prefix('establishment')->group(function() {
+    Route::get('/login', [App\Http\Controllers\EstablishmentController::class, 'EstablishmentIndex'])->name('establishment.login');
+    Route::post('/login/user', [App\Http\Controllers\EstablishmentController::class, 'EstablishmentLogin'])->name('establishment.login.user');
+    Route::get('/dashboard', [App\Http\Controllers\EstablishmentController::class, 'EstablishmentDashboard'])->name('establishment.dashboard')->middleware(EstablishmentMiddleware::class);
+    Route::get('logout', [App\Http\Controllers\EstablishmentController::class, 'EstablishmentLogout'])->name('establishment.logout')->middleware(EstablishmentMiddleware::class);
+    Route::get('/register', [App\Http\Controllers\EstablishmentController::class, 'EstablishmentRegister'])->name('establishment.register');
+    Route::post('/register/create', [App\Http\Controllers\EstablishmentController::class, 'EstablishmentRegisterCreate'])->name('establishment.register.create');
+    Route::post('/upload-sale-photo', [App\Http\Controllers\EstablishmentController::class, 'uploadSalePhoto'])->name('establishment.uploadSalePhoto');
+
+
+});
+
+
+
+// Establishment Route =================================================== //
+
+
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
