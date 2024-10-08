@@ -7,7 +7,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
-use Database\Seeders\EstablishmentSeeder;
+use App\Models\ArchivedEstablishment;
 
 class EstablishmentController extends Controller
 {
@@ -17,30 +17,88 @@ class EstablishmentController extends Controller
     }
 
 
-
+    // Dashboard ======================================================================
     public function EstablishmentDashboard()
     {
-    
         $establishment = Auth::guard('establishment')->user(); 
-
         return Inertia::render('establishment/EstablishmentDashboard',[
-            'establishmentName' => $establishment->name, 
-            'establishmentEmail' => $establishment->email,
-            'establishmentCoverPhoto' => $establishment->cover_photo,
-            'establishmentDescription' => $establishment->description,
-            'establishmentAddress' => $establishment->address,
-            'sale_section_photo' => $establishment->sale_section_photo,
-
+         'establishment' => $establishment,
+        'establishmentName' => $establishment->name, 
+        'establishmentEmail' => $establishment->email,
+        'establishmentCoverPhoto' => $establishment->cover_photo, 
+        'establishmentDescription' => $establishment->description,
+        'establishmentAddress' => $establishment->address,
+        'sale_section_photo' => $establishment->sale_section_photo,
         ]);
-        
     }
+    // Edit ======================================================================
+    public function EstablishmentEdit($id)
+   {
+       $establishment = Establishment::findOrFail($id);
+       
+       return Inertia::render('establishment/EstablishmentEdit', [
+           'establishment' => $establishment,
+       ]);
+   }
 
+    // Update ======================================================================
+   public function EstablishmentUpdate(Request $request, $id)
+   {
+    $establishment = Establishment::findOrFail($id);
+    $coverPhotoPath = $request->file('cover_photo') ? 
+        $request->file('cover_photo')->store('cover_photos', 'public') : 
+        $establishment->cover_photo;
+
+    $establishment->update([
+        'name' => $request->name,
+        'email' => $request->email,
+        'description' => $request->description,
+        'address' => $request->address,
+        'establishmentCoverPhoto' => $coverPhotoPath,
+    ]);
+
+    $establishment->refresh();
+
+    Auth::guard('establishment')->setUser($establishment); 
+    return redirect()->route('establishment.dashboard')
+        ->with('message', 'Establishment updated successfully');
+   }
+
+   public function EstablishmentDelete($id)
+{
+    $establishment = Establishment::findOrFail($id);
+
+    // Archive the establishment details before deleting
+    ArchivedEstablishment::create([
+        'name' => $establishment->name,
+        'email' => $establishment->email,
+        'description' => $establishment->description,
+        'address' => $establishment->address,
+        'cover_photo' => $establishment->cover_photo,
+        'sale_section_photo' => $establishment->sale_section_photo,
+    ]);
+
+    // Delete the establishment
+    $establishment->delete();
+
+    return redirect()->route('establishment.login')->with('message', 'Establishment account deleted and archived successfully');
+}
+
+        public function restore($id)
+        {
+            $establishment = Establishment::findOrFail($id);
+            $establishment->update(['status' => 'active']);  // Update the status or use a restore method if you're soft deleting
+
+            return response()->json(['message' => 'Establishment restored successfully']);
+        }
+
+        
     public function EstablishmentLogin (Request $request){
         $check = $request -> all();
         if(Auth::guard('establishment')->attempt([
            'email' => $check['email'],
            'password' => $check['password'] ]))
-           return redirect()->route('establishment.dashboard')->with('Error', 'Log in successfully');
+           return redirect()->route('establishment.dashboard')->with('message', 'Log in successfully');
   
            else{
               return back()->withErrors(['email' => 'Invalid Email or Password']);
@@ -49,7 +107,7 @@ class EstablishmentController extends Controller
 
      public function EstablishmentLogout(){
         Auth::guard('establishment')->logout();
-        return redirect()->route('establishment.login')->with('loggedout', 'Logged out successfully');
+        return redirect()->route('establishment.login')->with('message', 'Logged out successfully');
      }
 
      public function AdminRegisterCreate(Request $request){
@@ -62,7 +120,7 @@ class EstablishmentController extends Controller
   
         ]);
         
-        return redirect()->route('establishment.login')->with('success', 'Establishment created successfully');
+        return redirect()->route('establishment.login')->with('message', 'Establishment created successfully');
      }
 
      public function EstablishmentRegister(){
@@ -82,8 +140,11 @@ class EstablishmentController extends Controller
          'cover_photo' => $coverPhotoPath, // Store the file path
       ]);
       
-      return redirect()->route('establishment.login')->with('success', 'Establishment created successfully');
+      return redirect()->route('establishment.login')->with('message', 'Establishment created successfully');
    }
+
+   
+
    public function uploadSalePhoto(Request $request)
    {
        $request->validate([
@@ -101,7 +162,7 @@ class EstablishmentController extends Controller
            }
        }
    
-       return response()->json(['success' => 'Sale photo uploaded successfully']);
+       return response()->json(['message' => 'Sale photo uploaded successfully']);
    }
 
 

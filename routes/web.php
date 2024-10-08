@@ -38,7 +38,12 @@ Route::prefix('establishment')->group(function() {
     Route::get('logout', [App\Http\Controllers\EstablishmentController::class, 'EstablishmentLogout'])->name('establishment.logout')->middleware(EstablishmentMiddleware::class);
     Route::get('/register', [App\Http\Controllers\EstablishmentController::class, 'EstablishmentRegister'])->name('establishment.register');
     Route::post('/register/create', [App\Http\Controllers\EstablishmentController::class, 'EstablishmentRegisterCreate'])->name('establishment.register.create');
+    Route::get('/edit/{id}', [App\Http\Controllers\EstablishmentController::class, 'EstablishmentEdit'])->name('establishment.edit');
+    Route::post('/edit/{id}', [App\Http\Controllers\EstablishmentController::class, 'EstablishmentUpdate'])->name('establishment.update');
+    Route::delete('/establishment/{id}/delete', [App\Http\Controllers\EstablishmentController::class, 'EstablishmentDelete'])->name('establishment.delete');
     Route::post('/upload-sale-photo', [App\Http\Controllers\EstablishmentController::class, 'uploadSalePhoto'])->name('establishment.uploadSalePhoto');
+    Route::post('/establishments/{id}/restore', [EstablishmentController::class, 'restore'])->name('establishments.restore');
+
 
 
 });

@@ -7,7 +7,6 @@ import MeshBackground from '@/UI/MeshBackground';
 import { Head, Link, useForm, usePage} from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 
-
 export default function AdminLogin({ status, canResetPassword }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
@@ -18,6 +17,11 @@ export default function AdminLogin({ status, canResetPassword }) {
    
 
     const { props: { flash = {} } } = usePage();
+    const [flashMsg, setFlashMsg] = useState(flash.message);
+    setTimeout(()=>{
+        setFlashMsg(null)
+    }, 3000);
+
     const submit = (e) => {
         e.preventDefault();
     
@@ -33,19 +37,7 @@ export default function AdminLogin({ status, canResetPassword }) {
             },
         });
     };
-    
-    useEffect(() => {
-        if (flash.success) {
-            alert(flash.success); // Display success message
-        }
-        if (flash.error) {
-            alert(flash.error); // Display error message
-        }
-        if (flash.loggedout) {
-            alert(flash.loggedout); // Display error message
-        }
-    }, [flash]);
-  
+
     return (
         <GuestLayout>
             <Head title="Admin Log in" />
@@ -55,7 +47,9 @@ export default function AdminLogin({ status, canResetPassword }) {
                     {status}
                 </div>
             )}
+         
     <div className="flex min-h-[70vh] items-center justify-center px-2 py-12  max-w-[400px] mx-auto font-Manregular">
+    {flashMsg && <div className='absolute top-[10px] right-[10px] font-Manbold bg-accent text-white rounded-lg grid place-items-center p-4 '>{flashMsg}</div>}
     <div className="flex flex-col w-full px-6 py-8 bg-white shadow-md rounded-lg">
         <h2 className="text-left text-xl leading-9 tracking-tight text-gray-900 font-Manbold">
             Admin Log in

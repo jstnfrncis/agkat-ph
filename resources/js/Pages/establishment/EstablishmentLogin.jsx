@@ -7,6 +7,7 @@ import TextInput from '@/Components/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
 import MeshBackground from '@/UI/MeshBackground';
 import { Head, Link, useForm, usePage} from '@inertiajs/react';
+
 import { useEffect, useState } from 'react';
 
 
@@ -19,6 +20,12 @@ export default function EstablishmentLogin({ status, canResetPassword }) {
     const [showPassword, setShowPassword] = useState(false);
 
     const { props: { flash = {} } } = usePage();
+    const [flashMsg, setFlashMsg] = useState(flash.message);
+    setTimeout(()=>{
+        setFlashMsg(null)
+    }, 3000);
+    console.log(usePage());
+
     const submit = (e) => {
         e.preventDefault();
     
@@ -36,17 +43,7 @@ export default function EstablishmentLogin({ status, canResetPassword }) {
         });
     };
     
-    useEffect(() => {
-        if (flash.success) {
-            alert(flash.success); // Display success message
-        }
-        if (flash.error) {
-            alert(flash.error); // Display error message
-        }
-        if (flash.loggedout) {
-            alert(flash.loggedout); // Display error message
-        }
-    }, [flash]);
+  
   
     return (
         <GuestLayout>
@@ -58,6 +55,7 @@ export default function EstablishmentLogin({ status, canResetPassword }) {
                 </div>
             )}
     <div className="flex min-h-[70vh] items-center justify-center px-2 py-12  max-w-[400px] mx-auto font-Manregular">
+    {flashMsg && <div className='absolute top-[10px] right-[10px] font-Manbold bg-accent text-white rounded-lg grid place-items-center p-4 '>{flashMsg}</div>}
     <div className="flex flex-col w-full px-6 py-8 bg-white shadow-md rounded-lg">
         <h2 className="text-left text-xl leading-9 tracking-tight text-gray-900 font-Manbold">
             Establishment Log in
@@ -108,28 +106,6 @@ export default function EstablishmentLogin({ status, canResetPassword }) {
                 </label>
             </div>
         </div>
-            {/* Incorrect Email or Password  */}
-            
-            {flash.error && (
-                <div className="mb-4 text-sm font-medium text-green-600">
-                    {flash.error}
-                </div>
-            )}
-
-            {/* Log out succesfully  */}
-           
-             {flash.success && (
-                <div className="text-green-600">
-                    {flash.success}
-                </div>
-            )}
-
-            {flash.loggedout && (
-                <div className="text-green-600">
-                    {flash.loggedout}
-                </div>
-            )}
-           
 
                     <div className="mt-4 flex flex-col items-center">
                 

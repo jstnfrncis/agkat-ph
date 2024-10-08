@@ -8,6 +8,9 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Admin;
+use App\Models\ArchivedEstablishment;
+use App\Models\Establishment;
+
 
 
 class AdminController extends Controller
@@ -18,37 +21,34 @@ class AdminController extends Controller
    }
 
    public function Dashboard(){
+      
       // Auth for admin
       $admin = Auth::guard('admin')->user(); 
-
-      // // Data to get the users and show to the admin Dashboard
-      // $currentUserId = auth()->id();
-      // $users = User::where('usertype', 'user')
-      // ->where('id', '!=', $currentUserId) // Exclude the current user
-      // ->get();
-
-      // $establishmentsId = auth()->id();
-      // $establishments = User::where('usertype', 'establishment')
-      // ->where('id', '!=', $establishmentsId) // Exclude the current user
-      // ->get();
-
        $adminId= Auth::guard('admin')->id(); // Get the current admin's ID
 
       $users = User::where('usertype', 'user')
          ->where('id', '!=', $adminId) // Exclude the admin
          ->get();
+
+         $establishments = Establishment::where('usertype', 'establishment')
+         ->where('id', '!=', $adminId) // Exclude the admin
+         ->get();
+
          
-
-  $establishments = User::where('usertype', 'establishment')->get();
-
+         $archivedestablishments = ArchivedEstablishment::all();
+       
 
        // Data to get the Admin and show to the admin Dashboard
        return Inertia::render('admin/AdminDashboard', [
+         'users' => $users,
+         'establishments' => $establishments,
+         'archivedestablishments' => $archivedestablishments,
+
          'adminName' => $admin->name,
          'adminEmail' => $admin->email,
-         'users' => $users,
-         'establishments' => $establishments, 
+         
      ]);
+    
     
    }
 
@@ -58,7 +58,7 @@ class AdminController extends Controller
       if(Auth::guard('admin')->attempt([
          'email' => $check['email'],
          'password' => $check['password'] ]))
-         return redirect()->route('admin.dashboard')->with('Error', 'Admin Log in successfully');
+         return redirect()->route('admin.dashboard')->with('message', 'Admin Log in successfully');
 
          else{
             return back()->withErrors(['email' => 'Invalid Email or Password']);
@@ -69,7 +69,7 @@ class AdminController extends Controller
 
    public function AdminLogout(){
       Auth::guard('admin')->logout();
-      return redirect()->route('admin.login')->with('loggedout', 'Admin logged out successfully');
+      return redirect()->route('admin.login')->with('message', 'Admin logged out successfully');
    }
    
    public function AdminRegister(){
@@ -88,7 +88,7 @@ class AdminController extends Controller
 
       ]);
       
-      return redirect()->route('admin.login')->with('success', 'Admin created successfully');
+      return redirect()->route('admin.login')->with('message', 'Admin created successfully');
    }
    
 } 

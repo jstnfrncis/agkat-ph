@@ -8,6 +8,8 @@ import FileInput from '@/Components/FileInput'; // Assuming you have a FileInput
 import GuestLayout from '@/Layouts/GuestLayout';
 import MeshBackground from '@/UI/MeshBackground';
 import { Head, Link, useForm } from '@inertiajs/react';
+import Checkbox from '@/Components/Checkbox';
+import {useState } from 'react';
 
 export default function EstablishmentRegister({flash}) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -19,6 +21,7 @@ export default function EstablishmentRegister({flash}) {
         address: '', // New field
         cover_photo: null, // New field for file upload
     });
+    const [showPassword, setShowPassword] = useState(false);
 
     const submit = (e) => {
         e.preventDefault();
@@ -72,7 +75,7 @@ export default function EstablishmentRegister({flash}) {
                             <InputLabel htmlFor="password" value="Password" className='font-Manbold text-sm leading-6 text-primary text-left' />
                             <TextInput
                                 id="password"
-                                type="password"
+                                type={showPassword ? 'text' : 'password'}
                                 name="password"
                                 value={data.password}
                                 className="mt-1 block w-full"
@@ -87,7 +90,7 @@ export default function EstablishmentRegister({flash}) {
                             <InputLabel htmlFor="password_confirmation" value="Confirm Password" className='font-Manbold text-sm leading-6 text-primary text-left' />
                             <TextInput
                                 id="password_confirmation"
-                                type="password"
+                                type={showPassword ? 'text' : 'password'}
                                 name="password_confirmation"
                                 value={data.password_confirmation}
                                 className="mt-1 block w-full"
@@ -96,6 +99,19 @@ export default function EstablishmentRegister({flash}) {
                                 required
                             />
                             <InputError message={errors.password_confirmation} className="mt-2" />
+                        </div>
+                        <div className="mt-4 flex items-center">
+                            <Checkbox
+                                id="show-password"
+                                checked={showPassword}
+                                onChange={() => setShowPassword(!showPassword)} // Toggle show password state
+                            />
+                            <label
+                                htmlFor="show-password"
+                                className="ms-2 text-sm text-gray-600 cursor-pointer" // Add cursor pointer
+                            >
+                                Show password
+                            </label>
                         </div>
 
                         <div>
