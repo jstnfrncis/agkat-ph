@@ -45,21 +45,40 @@ class EstablishmentController extends Controller
    public function EstablishmentUpdate(Request $request, $id)
    {
     $establishment = Establishment::findOrFail($id);
+
+    // Validate incoming request
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:establishments,email,' . $id,
+        'description' => 'nullable|string',
+        'address' => 'nullable|string',
+        'cover_photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:6048',
+        'password' => 'nullable|string|min:8|confirmed', // Make sure to validate password if it's provided
+    ]);
+
+    // Handle the cover photo upload
     $coverPhotoPath = $request->file('cover_photo') ? 
         $request->file('cover_photo')->store('cover_photos', 'public') : 
         $establishment->cover_photo;
 
+    // Update the establishment details
     $establishment->update([
         'name' => $request->name,
         'email' => $request->email,
         'description' => $request->description,
         'address' => $request->address,
-        'establishmentCoverPhoto' => $coverPhotoPath,
+        'cover_photo' => $coverPhotoPath,
     ]);
 
-    $establishment->refresh();
+    // Update the password if it is provided
+    if ($request->filled('password')) {
+        $establishment->password = Hash::make($request->password);
+        $establishment->save();
+    }
 
-    Auth::guard('establishment')->setUser($establishment); 
+    // Refresh the establishment user in the session
+    Auth::guard('establishment')->setUser($establishment);
+    
     return redirect()->route('establishment.dashboard')
         ->with('message', 'Establishment updated successfully');
    }
@@ -148,7 +167,7 @@ class EstablishmentController extends Controller
    public function uploadSalePhoto(Request $request)
    {
        $request->validate([
-           'sale_photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:10240',
+           'sale_photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:6048',
        ]);
    
        $establishment = Auth::guard('establishment')->user();

@@ -4,7 +4,7 @@
 
 const  Hero = () => {
   return (
-    <div className="flex flex-col lg:flex-row text-primary justify-center items-center pt-[120px] mx-auto gap-2 sm:gap-6 md:gap-6  lg:gap-2 max-w-5xl">
+    <div className="flex flex-col lg:flex-row text-primary justify-center items-center pt-24 mx-auto gap-2 sm:gap-6 md:gap-6  lg:gap-28 max-w-5xl">
         <div className="flex flex-col gap-7 max-w-[600px] text-left">
             <h1 className="font-clash text-4xl md:text-5xl lg:text-6xl">Leisure Experiences <span className="text-accent">Made Simple</span> for <br />San Fernando</h1>
             <p className="font-epilogue max-w-[450px]">Discover the best cafés and restaurants through reviews covering their overall performance.</p>

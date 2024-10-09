@@ -124,8 +124,8 @@ export default function EstablishmentDashboard() {
     return (
         <>
             <Head title="Establishment dashboard" /> 
-        <main className='h-full'>
-        {flashMsg && <div className='absolute top-[10px] right-[10px] font-Manbold bg-accent text-white rounded-lg grid place-items-center p-4 '>{flashMsg}</div>}
+        <main className='h-full max-w-homepage mx-auto'>
+        {flashMsg && <div className='absolute top-[10px] right-[10px] z-50 font-Manbold bg-accent text-white rounded-lg grid place-items-center p-4 '>{flashMsg}</div>}
             <header className='Navigation font-Manbold'>
                 <nav className='flex justify-between items-center'>
                     <div><img src="/assets/Favicon.svg" alt="agkat-logo" /></div>

@@ -12,8 +12,8 @@ export default function EstablishmentEdit({ establishment, flash }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: establishment?.name || '',
         email: establishment?.email || '',
-        password: establishment?.password || '',
-        password_confirmation: establishment?.password_confirmation || '',
+        password: '', // Keep it empty for security
+        password_confirmation: '', // Keep it empty for security
         description: establishment?.description || '',
         address: establishment?.address || '',
         cover_photo: establishment?.cover_photo || '', // Initialize with existing photo URL or null
@@ -33,7 +33,7 @@ export default function EstablishmentEdit({ establishment, flash }) {
     return (
         <GuestLayout>
             <Head title="Edit Establishment" />
-            <div className="mx-auto max-w-7xl space-y-6 sm:px-6 lg:px-6 font-Manregular">
+            <div className="mx-auto max-w-homepage space-y-6 sm:px-6 lg:px-6 font-Manregular">
                 <div className="flex flex-col w-full">
                    
 
