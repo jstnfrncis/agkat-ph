@@ -32,6 +32,7 @@ php artisan storage:link
 - npm install nprogress
 - npm install --save-dev @vitejs/plugin-react
 - npm install chart.js react-chartjs-2
+- npm install date-fns
 
 ## Inertia dependencies (Server-side PHP)
 
