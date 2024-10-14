@@ -4,7 +4,7 @@ import { Link } from '@inertiajs/react';
 export default function Nearby() {
   return (
     <div className='sm:w-full md:w-full lg:w-[380px] my-14 ring-1 ring-icons rounded-2xl p-6 bg-white'>
-      <h1 className='text-3xl '>Nearby</h1>
+      <h1 className='text-xl font-Manbold '>You may also like</h1>
       <div className='review-container md:my-8'>
         <div className='flex flex-col gap-4'>
           {Array.from({ length: 8 }).map((_, index) => (

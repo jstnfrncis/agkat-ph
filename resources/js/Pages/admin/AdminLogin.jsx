@@ -5,8 +5,7 @@ import TextInput from '@/Components/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
 import MeshBackground from '@/UI/MeshBackground';
 import { Head, Link, useForm, usePage} from '@inertiajs/react';
-import { useEffect } from 'react';
-
+import { useEffect, useState } from 'react';
 
 export default function AdminLogin({ status, canResetPassword }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -14,9 +13,15 @@ export default function AdminLogin({ status, canResetPassword }) {
         password: '',
         remember: false,
     });
+    const [showPassword, setShowPassword] = useState(false);
    
 
     const { props: { flash = {} } } = usePage();
+    const [flashMsg, setFlashMsg] = useState(flash.message);
+    setTimeout(()=>{
+        setFlashMsg(null)
+    }, 3000);
+
     const submit = (e) => {
         e.preventDefault();
     
@@ -32,19 +37,7 @@ export default function AdminLogin({ status, canResetPassword }) {
             },
         });
     };
-    
-    useEffect(() => {
-        if (flash.success) {
-            alert(flash.success); // Display success message
-        }
-        if (flash.error) {
-            alert(flash.error); // Display error message
-        }
-        if (flash.loggedout) {
-            alert(flash.loggedout); // Display error message
-        }
-    }, [flash]);
-  
+
     return (
         <GuestLayout>
             <Head title="Admin Log in" />
@@ -54,7 +47,9 @@ export default function AdminLogin({ status, canResetPassword }) {
                     {status}
                 </div>
             )}
+         
     <div className="flex min-h-[70vh] items-center justify-center px-2 py-12  max-w-[400px] mx-auto font-Manregular">
+    {flashMsg && <div className='absolute top-[10px] right-[10px] font-Manbold bg-accent text-white rounded-lg grid place-items-center p-4 '>{flashMsg}</div>}
     <div className="flex flex-col w-full px-6 py-8 bg-white shadow-md rounded-lg">
         <h2 className="text-left text-xl leading-9 tracking-tight text-gray-900 font-Manbold">
             Admin Log in
@@ -82,7 +77,7 @@ export default function AdminLogin({ status, canResetPassword }) {
 
             <TextInput
                     id="password"
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
                     name="password"
                     value={data.password}
                     className="mt-1 block w-full"
@@ -90,6 +85,19 @@ export default function AdminLogin({ status, canResetPassword }) {
                     onChange={(e) => setData('password', e.target.value)}
                     />
                     <InputError message={errors.password} className="mt-2" />
+            </div>
+            <div className="mt-4 flex items-center">
+                <Checkbox
+                    id="show-password"
+                    checked={showPassword}
+                    onChange={() => setShowPassword(!showPassword)} // Toggle show password state
+                />
+                <label
+                    htmlFor="show-password"
+                    className="ms-2 text-sm text-gray-600 cursor-pointer" // Add cursor pointer
+                >
+                    Show password
+                </label>
             </div>
 
             {/* Incorrect Email or Password  */}
@@ -113,7 +121,7 @@ export default function AdminLogin({ status, canResetPassword }) {
                     {flash.loggedout}
                 </div>
             )}
-            <div className="mt-4 block">
+            {/* <div className="mt-4 block">
                         <label className="flex items-center">
                             <Checkbox
                                 name="remember"
@@ -126,7 +134,7 @@ export default function AdminLogin({ status, canResetPassword }) {
                                 Remember me
                             </span>
                         </label>
-                    </div>
+                    </div> */}
 
                     <div className="mt-4 flex flex-col items-center">
                 

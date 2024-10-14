@@ -2,17 +2,19 @@ import PropTypes from 'prop-types';
 
 export default function ReviewCard({ profileImage, userName, ratingImage, reviewTitle, reviewText, reviewPhotos }) {
     return (
-        <div className='review-container md:my-16 my-8'>
+        <div className='review-container md:mb-16 my-8'>
             <div className='flex items-center gap-4'>
+            <div className='flex w-[40px] h-[40px] overflow-hidden rounded-full items-center'>
                 <img src={profileImage} alt="profile" />
-                <h2 className='text-2xl'>{userName}</h2>
-            </div>
-            <div>
+                </div>
+                <h2 className='text-lg font-Manbold'>{userName}</h2>
                 <img src={ratingImage} alt="rating" />
+               
             </div>
-            <div>
+      
+            <div className='mt-4'>
                 <h1 className='font-Manbold'>{reviewTitle}</h1> {/* Use reviewTitle here */}
-                <p className='max-w-[455px]'>{reviewText}</p>
+                <p className='max-w-[605px] text-gray-500 '>{reviewText}</p>
             </div>
             <div className='grid grid-cols-4 sm:grid-cols-9 gap-2 mt-4'>
                 {reviewPhotos.map((photo, index) => (

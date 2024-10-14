@@ -17,10 +17,11 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
     return (
         <>
+        <div className='max-w-homepage mx-auto'>
             <Head title="Welcome" />
             <div className=" dark:text-white/50">
                 <div className="relative flex min-h-screen flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
-                    <div className="relative w-full max-w-2xl px-6 lg:max-w-7xl">
+                    <div className="relative w-full max-w-2xl lg:max-w-7xl">
                             <div className="flex lg:col-start-2 lg:justify-center">                      
                             </div>
                             <header>
@@ -34,7 +35,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
          {/* Contents Navigation Desktop */}
        <div className="nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
 
-           <ul className="flex md:flex-row flex-col md:items-center ] gap-11 font-epilogue bold">
+           <ul className="flex md:flex-row flex-col md:items-center  gap-11 font-epilogue bold">
                <li><a href="#event" className='hover:text-accent transition text-primary'>News & Events</a></li>
                <li><a href="#discover" className='hover:text-accent transition text-primary'>Discover</a></li>
                <li ><a href="#about" className='hover:text-accent transition text-primary'>About</a></li>
@@ -55,7 +56,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                    </div>
                                 ) : (
                                     <>
-                                   <div className='flex gap-8 font-epilogue bold justify-center items-center'>
+                                   <div className='hidden md:flex gap-8 font-epilogue bold justify-center items-center'>
                                     <Link href={route('login')} className="hover:text-accent transition text-primary">Log in</Link>
                                     <Link href={route('register')} className="bg-accent hover:bg-blue-900 transition-all text-white px-6 py-2 rounded-lg active:scale-[0.98] active-duration-75"> Register </Link>
                                    </div>
@@ -71,7 +72,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
         {/* Hamburger Mobile Side Navigation */}
         <button className='md:hidden relative peer hover:text-accent transition cursor-pointer'>
-           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 text-accent">
              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
            </svg>
         </button>
@@ -92,8 +93,19 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
              <a href="#about" className="py-3 px-2 rounded-xl text-primary hover:text-accent transition hover:bg-highlight">About</a>
            
          </div>
-           <Link href="/login-select" className="my-4 bg-accent text-white  hover:bg-blue-900 transition inline-flex justify-center rounded-lg text-sm  py-3 px-4 w-full">Sign in</Link>
-           
+           {auth.user ? (
+                                   <div className='flex font-epilogue bold'>
+                                   
+                                   </div>
+                                ) : (
+                                    <>
+                                   <div className='flex flex-col w-full gap-4 font-epilogue bold'>
+                                    <Link href={route('login')} className=" bg-white text-accent mt-6 ring-1 ring-acccent  transition inline-flex justify-center rounded-lg text-sm  py-3 px-4 w-full">Log in</Link>
+                                    <Link href={route('register')} className=" bg-accent text-white  hover:bg-blue-900 transition inline-flex justify-center rounded-lg text-sm  py-3 px-4 w-full"> Register </Link>
+                                   </div>
+                                       
+                                    </>
+                                )}
           
        </div>
     
@@ -123,6 +135,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                              <Home/>
                     </div>
                 </div>
+            </div>
             </div>
         </>
     );

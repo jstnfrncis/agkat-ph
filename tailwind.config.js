@@ -34,7 +34,9 @@ export default {
                 }
               },
               maxWidth: {
-                'custom': '1030px', 
+                'custom': '1030px',
+                'homepage': '1380px', 
+
               },
               fontFamily: {
                 clash: ['ClashDisplay', 'sans-serif'],
