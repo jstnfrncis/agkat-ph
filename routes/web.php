@@ -8,6 +8,10 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Middleware\EstablishmentMiddleware;
+use App\Http\Controllers\Auth\NewPasswordController;
+use App\Http\Controllers\Auth\PasswordController;
+use App\Http\Controllers\Auth\PasswordResetLinkController;
+
 
 
 // Admin Route =================================================== //
@@ -43,7 +47,18 @@ Route::prefix('establishment')->group(function() {
     Route::delete('/establishment/{id}/delete', [App\Http\Controllers\EstablishmentController::class, 'EstablishmentDelete'])->name('establishment.delete');
     Route::post('/upload-sale-photo', [App\Http\Controllers\EstablishmentController::class, 'uploadSalePhoto'])->name('establishment.uploadSalePhoto');
     Route::post('/establishments/{id}/restore', [EstablishmentController::class, 'restore'])->name('establishments.restore');
+    
+    Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
+        ->name('password.request');
 
+    Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
+        ->name('password.email');
+
+    Route::get('/reset-password/{token}', [NewPasswordController::class, 'create'])
+        ->name('password.reset');
+
+    Route::post('/reset-password', [NewPasswordController::class, 'store'])
+        ->name('password.store');
 
 
 });
@@ -80,9 +95,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/login-select', function () {
-    return inertia::render('LoginSelect');
-});
+
 
 
 

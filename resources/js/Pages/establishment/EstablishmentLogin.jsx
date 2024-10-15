@@ -131,14 +131,14 @@ export default function EstablishmentLogin({ status, canResetPassword }) {
                     </div> */}
 
                     <div className='flex flex-col gap-6 w-full items-center mt-6'>
-                    {canResetPassword && (
+                    {/* {canResetPassword && ( */}
                             <Link
                                 href={route('password.request')} 
                                 className="rounded-md text-sm text-accent decoration-none hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                             >
                                 Forgot your password?
                             </Link>
-                        )}
+                        {/* )} */}
                   
                     </div>
                  </form>

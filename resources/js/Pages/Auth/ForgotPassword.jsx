@@ -2,6 +2,7 @@ import InputError from '@/Components/InputError';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
+import MeshBackground from '@/UI/MeshBackground';
 import { Head, useForm } from '@inertiajs/react';
 
 export default function ForgotPassword({ status }) {
@@ -18,9 +19,10 @@ export default function ForgotPassword({ status }) {
     return (
         <GuestLayout>
             <Head title="Forgot Password" />
-
+        <main className='max-w-[550px] mx-auto flex flex-col w-full px-6 py-8 bg-white shadow-md rounded-lg font-Manregular'>
             <div className="mb-4 text-sm text-gray-600">
-                Forgot your password? No problem. Just let us know your email
+                <h1 className='font-Manbold text-lg'>Forgot your password?</h1>
+                 No problem. Just let us know your email
                 address and we will email you a password reset link that will
                 allow you to choose a new one.
             </div>
@@ -31,7 +33,7 @@ export default function ForgotPassword({ status }) {
                 </div>
             )}
 
-            <form onSubmit={submit}>
+            <form onSubmit={submit} className='flex flex-col'>
                 <TextInput
                     id="email"
                     type="email"
@@ -45,11 +47,14 @@ export default function ForgotPassword({ status }) {
                 <InputError message={errors.email} className="mt-2" />
 
                 <div className="mt-4 flex items-center justify-end">
-                    <PrimaryButton className="ms-4" disabled={processing}>
+                    <PrimaryButton  disabled={processing}>
                         Email Password Reset Link
                     </PrimaryButton>
                 </div>
             </form>
+            </main>
+            <MeshBackground/>
         </GuestLayout>
+        
     );
 }

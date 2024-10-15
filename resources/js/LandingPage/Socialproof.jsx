@@ -6,21 +6,21 @@ const  Socialproof = ({ className }) => {
   return (
     <div className={`flex flex-col text-primary  gap-2  overflow-hidden ${className}`}>
         <div className="flex flex-col gap-2 max-w-[600px] text-left">
-            <h1 className="font-clash text-4xl md:text-5xl lg:text-6xl">Social Proof</h1>
-            <p className="font-epilogue max-w-[450px]">Logotype of Cafes and Restos</p>
+            <h1 className="font-clash text-4xl md:text-5xl lg:text-6xl">Local Favorites</h1>
+            <p className="font-epilogue max-w-[450px]">Recognize these logos? They’re part of our community!</p>
         </div>
        <div className='flex overflow-hidden gap-12 group'>
          <div className="container-icons flex  space-x-16 animate-loop-scroll group-hover:paused" aria-hidden="true">
-            <img className="w-30 h-auto" src="./mailchimp.svg" alt="" loading='lazy' />
-            <img className="w-30 h-auto" src="./adobe.svg" alt="" loading='lazy' />
-            <img className="w-30 h-auto" src="./coinbase.svg" alt=""  loading='lazy'/>
-            <img className="w-30 h-auto" src="./asana.svg" alt=""  loading='lazy'/>
-            <img className="w-30 h-auto" src="./gumroad.svg" alt="" loading='lazy' />
-            <img className="w-30 h-auto" src="./mailchimp.svg" alt="" loading='lazy' />
-            <img className="w-30 h-auto" src="./adobe.svg" alt="" loading='lazy' />
-            <img className="w-30 h-auto" src="./coinbase.svg" alt=""  loading='lazy'/>
-            <img className="w-30 h-auto" src="./asana.svg" alt=""  loading='lazy'/>
-            <img className="w-30 h-auto" src="./gumroad.svg" alt="" loading='lazy' />
+            <img className="w-30 h-auto" src="./PrimeroLogo.svg" alt="" loading='lazy' />
+            <img className="w-30 h-auto" src="./HangarOneLogo.svg" alt="" loading='lazy' />
+            <img className="w-30 h-auto" src="./Mapalogo.svg" alt=""  loading='lazy'/>
+            <img className="w-30 h-auto mb-14" src="./WokitoutLogo.svg" alt=""  loading='lazy'/>
+            <img className="w-30 h-auto" src="./StellaLogo.svg" alt="" loading='lazy' />
+            <img className="w-30 h-auto" src="./PrimeroLogo.svg" alt="" loading='lazy' />
+            <img className="w-30 h-auto" src="./HangarOneLogo.svg" alt="" loading='lazy' />
+            <img className="w-30 h-auto" src="./Mapalogo.svg" alt=""  loading='lazy'/>
+            <img className="w-30 h-auto mb-14" src="./WokitoutLogo.svg" alt=""  loading='lazy'/>
+            <img className="w-30 h-auto" src="./StellaLogo.svg" alt="" loading='lazy' />
          </div>
   
        </div>

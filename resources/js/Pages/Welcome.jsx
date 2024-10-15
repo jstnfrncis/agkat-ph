@@ -20,7 +20,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
         <div className='max-w-homepage mx-auto'>
             <Head title="Welcome" />
             <div className=" dark:text-white/50">
-                <div className="relative flex min-h-screen flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
+                <div className="relative flex min-h-screen flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white px-4">
                     <div className="relative w-full max-w-2xl lg:max-w-7xl">
                             <div className="flex lg:col-start-2 lg:justify-center">                      
                             </div>

@@ -3,6 +3,7 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
+import MeshBackground from '@/UI/MeshBackground';
 import { Head, useForm } from '@inertiajs/react';
 
 export default function ResetPassword({ token, email }) {
@@ -24,9 +25,10 @@ export default function ResetPassword({ token, email }) {
     return (
         <GuestLayout>
             <Head title="Reset Password" />
-
+            <main className='max-w-[550px] mx-auto flex flex-col w-full px-6 py-8 bg-white shadow-md rounded-lg font-Manregular'>
+          
             <form onSubmit={submit}>
-                <div>
+            <div className="mb-4 text-sm text-gray-600">
                     <InputLabel htmlFor="email" value="Email" />
 
                     <TextInput
@@ -84,11 +86,13 @@ export default function ResetPassword({ token, email }) {
                 </div>
 
                 <div className="mt-4 flex items-center justify-end">
-                    <PrimaryButton className="ms-4" disabled={processing}>
+                    <PrimaryButton  disabled={processing}>
                         Reset Password
                     </PrimaryButton>
                 </div>
             </form>
+            </main>
+            <MeshBackground/>
         </GuestLayout>
     );
 }
